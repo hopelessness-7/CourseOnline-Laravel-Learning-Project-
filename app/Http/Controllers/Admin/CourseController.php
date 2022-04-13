@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 
 class CourseController extends Controller
@@ -57,7 +59,19 @@ class CourseController extends Controller
             'description' => 'required',
         ]);
 
-        Course::create($request->all());
+        $course = new Course;
+
+        $course->title = $request->input('title');
+        $course->description = $request->input('description');
+        $course->categorie_id = $request->input('categorie_id');
+
+        $course->save();
+
+        if (Auth::check()) {
+            $user = Auth::user()->id;
+        }
+
+        $course->users()->sync($user);
 
         return redirect()->route('courses.index')
                         ->with('success','Курс успешно создан');
@@ -72,7 +86,9 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
-        return view('admin.courses.show',compact('course'));
+        $records = DB::table('course_user')->select('id', 'user_id', 'course_id')->get();
+        return view('admin.courses.show',compact('course', 'records'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

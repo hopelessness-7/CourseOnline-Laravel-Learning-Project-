@@ -7,8 +7,9 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Categorie;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Models\Theme_Course;
-
+use Illuminate\Http\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Request $request)
     {
         Paginator::useBootstrap();
         // Формирование нашего меню
@@ -45,5 +46,6 @@ class AppServiceProvider extends ServiceProvider
 
         $dataRecordAll = DB::table('course_user')->select('id', 'user_id', 'course_id')->get();
         view()->share('records', $dataRecordAll);
+
     }
 }

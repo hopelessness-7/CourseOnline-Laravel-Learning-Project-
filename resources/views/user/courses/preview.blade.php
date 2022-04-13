@@ -6,13 +6,14 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2> Курс</h2>
+            <h2>Курс</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('courses.index') }}"> Назад</a>
+            <a class="btn btn-primary" href="{{ route('courses.index') }}"> Назад</a> // сделать
         </div>
     </div>
 </div>
+
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -35,7 +36,11 @@
     </div>
 </div>
 
+<a href="{{ route('record', $course->id) }}" class="btn btn-success my-10">Записаться</a>
+
+
 <div class="accordion accordion-flush" id="accordionFlushExample">
+
 @foreach($course->theme_courses as $theme_course)
     <div class="accordion-item">
         <h2 class="accordion-header" id="flush-heading{{ $theme_course->id }}">
@@ -49,7 +54,6 @@
                     <strong>{{ $lesson->title }}</strong>
                     {{ $lesson->description }}
                 </div>
-                <a href="/user/course/{{$theme_course->course_id}}/theme/{{$lesson->theme_course_id }}/lesson/{{$lesson->id}}" class="btn btn-success">Перейти к выполнению курса</a>
             @endforeach
         </div>
     </div>

@@ -1,4 +1,4 @@
-@extends('layouts.userPanel')
+@extends('layouts.adminPanel')
 
 
 @section('content')
@@ -64,5 +64,4 @@
         </tr>
         @endforeach
     </table>
-
 @endsection

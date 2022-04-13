@@ -83,29 +83,28 @@
                     <li class="header">Темы уроков</li>
                     <li class="treeview">
                         @foreach($records as $record)
-                            @if (Auth::user()->id == $record->user_id)
-                            <a href="#">
-                                @foreach($them as $th)
-                                    @if($record->course_id == $th->course_id)
-                                        <i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>{{ $th->title }}
-                                    @endif
-                                @endforeach
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-right pull-right"></i>
-                                </span>
-                                <ul class="treeview-menu">
-                                    @foreach ($them as $th)
-                                        @if ($record->course_id == $th->course_id)
-                                            @foreach ($les as $l)
-                                                @if ($l->theme_course_id  == $th->id)
-                                                    <li><a href=""><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>{{ $l->title }}</a></li>
-                                                @endif
-                                            @endforeach
+                            @foreach ($them as $th)
+                                @if ($record->course_id == $th->course_id)
+                                    @if ($th->course_id == request()->route('c_id'))
+                                        @if (Auth::user()->id == $record->user_id)
+                                        <a href="#">
+                                            <i class="icon-Layout-4-blocks"><span class="path1"></span><span class="path2"></span></i>{{ $th->title }}
+                                            <span class="pull-right-container">
+                                                <i class="fa fa-angle-right pull-right"></i>
+                                            </span>
+                                            <ul class="treeview-menu">
+                                                @foreach ($les as $l)
+                                                    @if ($l->theme_course_id  == $th->id)
+                                                        <li><a href="/user/course/{{$th->course_id}}/theme/{{$l->theme_course_id }}/lesson/{{$l->id}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>{{ $l->title }}</a></li>
+
+                                                    @endif
+                                                @endforeach
+                                            </ul>
+                                        </a>
                                         @endif
-                                    @endforeach
-                                </ul>
-                            </a>
-                            @endif
+                                    @endif
+                                @endif
+                            @endforeach
                         @endforeach
                     </li>
 			    </ul>

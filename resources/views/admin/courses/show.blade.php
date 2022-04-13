@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2> Курс</h2>
+            <h2>Курс</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('courses.index') }}"> Назад</a>
@@ -36,9 +36,45 @@
     </div>
 </div>
 
-<a href="{{ route('record', $course->id) }}" class="btn btn-success">Записаться</a>
+@role('User')
+    <a href="{{ route('record', $course->id) }}" class="btn btn-success my-10">Записаться</a>
+@endrole
+
+@role('Admin|Teacher')
+
+<a href="{{ route('show') }}" class="btn btn-success my-10">Добавить пользователя</a>
+
+<table class="table table-bordered" id="dataTable1">
+    <tr>
+        <th>Id</th>
+        <th>Пользователь</th>
+        <th width="280px">Действия</th>
+    </tr>
+    @foreach ($course->users as $user)
+        <tr>
+            <td>{{ ++$i }}</td>
+            <td>{{ $user->name }}</td>
+            <td>
+                <div class="dropdown text-center">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Действие
+                    </button>
+                    <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a href="{{ route('delete',$course->id) }}" class="btn btn-danger my-5">Отписать</a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    @endforeach
+</table>
+
+@endrole
+
 
 <div class="accordion accordion-flush" id="accordionFlushExample">
+
 @foreach($course->theme_courses as $theme_course)
     <div class="accordion-item">
         <h2 class="accordion-header" id="flush-heading{{ $theme_course->id }}">

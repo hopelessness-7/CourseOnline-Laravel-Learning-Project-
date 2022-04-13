@@ -90,12 +90,18 @@
 					</span>
 				  </a>
 				  <ul class="treeview-menu">
-					<li><a href="{{ route('categories.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Категории</a></li>
-					<li><a href="{{ route('courses.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Курсы</a></li>
+                      @role('Admin')
+                        <li><a href="{{ route('categories.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Категории</a></li>
+					    <li><a href="{{ route('courses.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Курсы</a></li>
+                      @endrole
+                      @role('Teacher')
+                        <li><a href="{{ route('courses.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Курсы</a></li>
+                      @endrole
 					<li><a href="{{ route('theme_courses.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Темы курсов</a></li>
 					<li><a href="{{ route('lessons.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Уроки</a></li>
 				  </ul>
 				</li>
+                @role('Admin')
 				<li class="header">Пользователи</li>
                 <li class="treeview">
                     <a href="#">
@@ -106,9 +112,9 @@
                       </span>
                     </a>
                     <ul class="treeview-menu">
-                      <li><a href="{{ route('users.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Пользователи</a></li>
+                        <li><a href="{{ route('users.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Пользователи</a></li>
                     </ul>
-                  </li>
+                </li>
                 <li class="treeview">
 				  <a href="#">
 					<i class="icon-Library"><span class="path1"></span><span class="path2"></span></i>
@@ -121,6 +127,7 @@
 					<li><a href="{{ route('roles.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Роли</a></li>
 				  </ul>
 				</li>
+                @endrole
 			  </ul>
 		  </div>
 		</div>

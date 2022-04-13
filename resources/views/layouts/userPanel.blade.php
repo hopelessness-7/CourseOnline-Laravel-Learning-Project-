@@ -116,7 +116,7 @@
                                 <ul class="treeview-menu">
                                     @foreach($website as $web)
                                         @if($key->id == $web->categorie_id)
-                                            <li><a href="/course/{{ $web->id }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i> {{ $web->title }}</a></li>
+                                            <li><a href="/user/course/preview/{{ $web->id }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i> {{ $web->title }}</a></li>
                                         @endif
                                     @endforeach
                                 </ul>
