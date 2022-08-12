@@ -9,7 +9,7 @@
             <h2> Курс</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('courses.index') }}"> Назад</a>
+            <a class="btn btn-primary" href="/user/dashboardUser"> Назад</a>
         </div>
     </div>
 </div>
@@ -49,7 +49,7 @@
                     <strong>{{ $lesson->title }}</strong>
                     {{ $lesson->description }}
                 </div>
-                <a href="/user/course/{{$theme_course->course_id}}/theme/{{$lesson->theme_course_id }}/lesson/{{$lesson->id}}" class="btn btn-success">Перейти к выполнению курса</a>
+                <a href="/user/course/{{$theme_course->course_id}}/theme/{{$lesson->theme_course_id }}/lesson/{{$lesson->id}}" class="btn btn-success">Перейти к выполнению урока</a>
             @endforeach
         </div>
     </div>

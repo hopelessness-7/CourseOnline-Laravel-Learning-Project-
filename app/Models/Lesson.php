@@ -15,7 +15,8 @@ class Lesson extends Model
     protected $fillable = [
         'title',
         'description',
-        'task'
+        'task',
+        'theme_course_id'
     ];
 
     protected $hidden = [

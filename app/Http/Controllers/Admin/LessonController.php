@@ -102,7 +102,7 @@ class LessonController extends Controller
             'description' => 'required',
         ]);
 
-        $theme_course->update($request->all());
+        $lesson->update($request->all());
 
         return redirect()->route('lessons.index')
                         ->with('success','Урок изменён успешно');

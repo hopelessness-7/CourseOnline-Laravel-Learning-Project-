@@ -22,7 +22,7 @@
         </div>
     @endif
 
-    @role('Admin')
+    @role('admin')
         <table class="table table-bordered" id="dataTable1">
             <tr>
                 <th>Id</th>
@@ -44,7 +44,7 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li>
-                                <a class="btn btn-info" href="/course/{{$course->id}}">Обзор</a>
+                                <a class="btn btn-info" href="{{ route('courses.show',$course->id) }}">Обзор</a>
                             </li>
                             <li>
                                 @can('course-edit')
@@ -68,7 +68,7 @@
         </table>
     @endrole
 
-    @role('Teacher')
+    @role('teacher')
     <table class="table table-bordered" id="dataTable1">
         <tr>
             <th>Id</th>

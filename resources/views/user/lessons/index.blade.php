@@ -9,7 +9,7 @@
             <h2>Урок: </h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('lessons.index') }}"> Назад</a>
+            <a class="btn btn-primary" href="/user/dashboardUser"> Назад</a>
         </div>
     </div>
 </div>

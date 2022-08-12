@@ -90,18 +90,18 @@
 					</span>
 				  </a>
 				  <ul class="treeview-menu">
-                      @role('Admin')
+                      @role('admin')
                         <li><a href="{{ route('categories.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Категории</a></li>
 					    <li><a href="{{ route('courses.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Курсы</a></li>
                       @endrole
-                      @role('Teacher')
+                      @role('teacher')
                         <li><a href="{{ route('courses.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Курсы</a></li>
                       @endrole
 					<li><a href="{{ route('theme_courses.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Темы курсов</a></li>
 					<li><a href="{{ route('lessons.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Уроки</a></li>
 				  </ul>
 				</li>
-                @role('Admin')
+                @role('admin')
 				<li class="header">Пользователи</li>
                 <li class="treeview">
                     <a href="#">
