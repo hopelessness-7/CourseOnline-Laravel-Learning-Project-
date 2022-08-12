@@ -21,11 +21,6 @@ class CourseController extends Controller
          $this->middleware('permission:course-delete', ['only' => ['destroy']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $courses = Course::latest()->paginate(5);
@@ -33,11 +28,6 @@ class CourseController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         // $courses = Course::all();
@@ -46,12 +36,6 @@ class CourseController extends Controller
         return view('admin.courses.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         request()->validate([
@@ -77,12 +61,6 @@ class CourseController extends Controller
                         ->with('success','Курс успешно создан');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Categorie  $course
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $course = Course::find($id);
@@ -91,25 +69,12 @@ class CourseController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Course  $course
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Course $course)
     {
         $categories = Categorie::all();
         return view('admin.courses.edit',compact('course','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Course  $course
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Course $course)
     {
         request()->validate([
@@ -123,12 +88,6 @@ class CourseController extends Controller
                         ->with('success','Категория изменена успешно');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Course  $course
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Course $course)
     {
         $course->delete();

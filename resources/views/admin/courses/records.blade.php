@@ -26,9 +26,7 @@
     @endif
 
 
-    <form action="{{ route('create') }}" method="POST">
-        @csrf
-
+    {!! Form::open(array('route' => 'store','method'=>'POST')) !!}
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -45,18 +43,18 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Пользователь:</strong>
-                    <input type="hidden" name="user_id" id="UsId">
-                    <select name="" id="" onchange="document.getElementById('UsId').value= this.value">
-                        <option selected disabled>Выберите пользователя</option>
-                       @foreach ($users as $user)
-                            <option value='{{ $user->id }}'>{{ $user->name }}</option>
-                        @endforeach
-                    </select>
+                    <br/>
+                    @foreach ($usersAll as $user)
+                    <label for="">
+                        {{ Form::checkbox('selectUsers[]', $user->id, false, array('class' => 'name')) }}
+                        {{ $user->name }}
+                    </label><br>
+                    @endforeach
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Добавить</button>
             </div>
         </div>
-    </form>
+        {!! Form::close() !!}
 @endsection

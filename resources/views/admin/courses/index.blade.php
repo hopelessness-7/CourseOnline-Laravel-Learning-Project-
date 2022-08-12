@@ -23,7 +23,8 @@
     @endif
 
     @role('admin')
-        <table class="table table-bordered" id="dataTable1">
+        <table class="display" id="myTable">
+            <thead>
             <tr>
                 <th>Id</th>
                 <th>Наименование</th>
@@ -31,11 +32,13 @@
                 <th>Категория</th>
                 <th width="280px">Действия</th>
             </tr>
+            </thead>
+            <tbody>
             @foreach ($courses as $course)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $course->title }}</td>
-                <td>{{ $course->description }}</td>
+                <td>{{ Str::limit($course->description, 100) }}</td>
                 <th>{{ $course->categorie->title}}</th>
                 <td>
                     <div class="dropdown text-center">
@@ -65,17 +68,21 @@
                 </td>
             </tr>
             @endforeach
+            </tbody>
         </table>
     @endrole
 
     @role('teacher')
-    <table class="table table-bordered" id="dataTable1">
+    <table class="display" id="myTable">
+        <thead>
         <tr>
             <th>Id</th>
             <th>Наименование</th>
             <th>Описание</th>
             <th>Категория</th>
         </tr>
+        </thead>
+        <tbody>
         @foreach ($records as $record)
             @if (Auth::user()->id == $record->user_id)
                 @foreach ($courses as $course)
@@ -83,7 +90,7 @@
                     <tr>
                         <td>{{ ++$i }}</td>
                         <td>{{ $course->title }}</td>
-                        <td>{{ $course->description }}</td>
+                        <td>{{ Str::limit($course->description, 100) }}</td>
                         <th>{{ $course->categorie->title}}</th>
                         <td>
                             <div class="dropdown text-center">
@@ -92,7 +99,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li>
-                                        <a class="btn btn-info" href="/course/{{$course->id}}">Обзор</a>
+                                        <a class="btn btn-info" href="{{ route('courses.show',$course->id) }}">Обзор</a>
                                     </li>
                                     <li>
                                         @can('course-edit')
@@ -116,6 +123,7 @@
                 @endforeach
             @endif
         @endforeach
+        </tbody>
     </table>
     @endrole
 

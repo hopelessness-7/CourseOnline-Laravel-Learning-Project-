@@ -42,13 +42,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Описание: </strong>
-                <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $lesson->description }}</textarea>
+                <textarea class="form-control" style="height:150px" name="description" id="summernote" placeholder="Description">{{ $lesson->description }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Задание: </strong>
-                <textarea class="form-control" style="height:150px" name="task" placeholder="Task">{{ $lesson->task }}</textarea>
+                <textarea class="form-control" style="height:150px" name="task" id="summernote1" placeholder="Task">{{ $lesson->task }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

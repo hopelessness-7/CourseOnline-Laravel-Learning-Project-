@@ -19,11 +19,12 @@ return new class extends Migration
             ->constrained()
             ->cascadeOnDelete()
             ->cascadeOnUpdate();
-            $table->foreignId('course_id')
+            $table->foreignId('lesson_id')
             ->constrained()
             ->cascadeOnDelete()
             ->cascadeOnUpdate();
             $table->string('status');
+            $table->string('reply');
             $table->timestamps();
         });
     }

@@ -30,12 +30,6 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Задание: </strong>
-            {{ $theme_course->task }}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
             <strong>Курс: </strong>
             {{ $theme_course->course->title }}
         </div>

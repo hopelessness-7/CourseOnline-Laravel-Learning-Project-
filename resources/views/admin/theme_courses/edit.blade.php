@@ -42,13 +42,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Описание:</strong>
-                <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $theme_course->description }}</textarea>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Задание:</strong>
-                <textarea class="form-control" style="height:150px" name="task" placeholder="Task">{{ $theme_course->task }}</textarea>
+                <textarea class="form-control" style="height:150px" name="description" id="summernote"  placeholder="Description">{{ $theme_course->description }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -64,7 +58,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Изменить</button>
         </div>
     </div>
 

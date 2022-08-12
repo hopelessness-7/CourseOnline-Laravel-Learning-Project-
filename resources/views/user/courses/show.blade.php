@@ -24,7 +24,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Описание:</strong>
-            {{ $course->description }}
+            {!! $course->description !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,7 +47,7 @@
             @foreach($theme_course->lessons as $lesson)
                 <div class="accordion-body">
                     <strong>{{ $lesson->title }}</strong>
-                    {{ $lesson->description }}
+                    {!! $lesson->description !!}
                 </div>
                 <a href="/user/course/{{$theme_course->course_id}}/theme/{{$lesson->theme_course_id }}/lesson/{{$lesson->id}}" class="btn btn-success">Перейти к выполнению урока</a>
             @endforeach

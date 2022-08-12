@@ -1,5 +1,5 @@
 /*
-Template Name: EduAdmin - Responsive Admin Template 
+Template Name: EduAdmin - Responsive Admin Template
 Author: Multipurpose Themes
 File: scss
 */
@@ -91,6 +91,7 @@ Waves
 @import url(../../assets/icons/iconsmind/style.css);
 @import url(../../assets/icons/icomoon/style.css);
 @import url(../../assets/vendor_components/animate/animate.css);
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap');
 html {
   height: 100%;
   font-size: 14px; }
@@ -164,6 +165,26 @@ h1, h2, h3, .h1, .h2, .h3 {
 
 img {
   max-width: 100%; }
+
+body {
+line-height: 24px;
+font-size: 14px;
+font-style: normal;
+font-weight: normal;
+visibility: visible;
+font-family: 'Nunito', sans-serif;
+color: #222; }
+h1, h2, h3, h4, h5, h6 {
+color: #222;
+font-family: 'Nunito', sans-serif;
+font-weight: 400;
+margin-top: 0; }
+h1 { font-size: 36px; line-height: 42px; }
+h2 { font-size: 32px; line-height: 36px; }
+h3 { font-size: 24px; line-height: 30px; }
+h4 { font-size: 18px; line-height: 24px; }
+h5 { font-size: 14px; line-height: 18px; }
+h6 { font-size: 12px; line-height: 24px; }
 
 .img-fluid {
   width: 100%; }
@@ -1069,7 +1090,7 @@ small, .small {
   font-weight: 400; }
 
 /*******************
-Padding property 
+Padding property
 *******************/
 .p-0 {
   padding: 0px !important; }
@@ -7673,7 +7694,7 @@ Padding property
     padding-top: 200px !important;
     padding-bottom: 200px !important; } }
 /*******************
-Margin property 
+Margin property
 *******************/
 .m-0 {
   margin: 0px !important; }
@@ -14277,7 +14298,7 @@ Margin property
     margin-top: 200px !important;
     margin-bottom: 200px !important; } }
 /*******************
-Width property 
+Width property
 *******************/
 .w-0 {
   width: 0px !important; }
@@ -17196,7 +17217,7 @@ Width property
   .max-w-lg-auto {
     max-width: auto; } }
 /*******************
-Height property 
+Height property
 *******************/
 .h-0 {
   height: 0px !important; }
@@ -31946,8 +31967,39 @@ img.away, img.busy, img.offline, img.online {
 .waves-block {
   display: block; }
 
+
 /* Firefox Bug: link not triggered */
 .waves-effect .waves-ripple {
   z-index: -1; }
 
 /*# sourceMappingURL=style.css.map */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  #myTable_wrapper {
+    width: 100%;
+    margin-right: 2%;
+  }
+
+  #chart {
+    width: 63%;
+  }
+
+  table {
+    text-align: left;
+  }
+
+  @media screen and (max-width: 1200px) {
+    #myTable_wrapper,
+    #chart {
+      width: 100%;
+    }
+
+    #myTable_wrapper {
+      margin-right: 0;
+    }
+  }

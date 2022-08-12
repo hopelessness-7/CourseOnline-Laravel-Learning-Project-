@@ -10,10 +10,7 @@
 
     <title>User Panel</title>
 
-	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ url('assets/css/vendors_css.css') }}">
-
-	<!-- Style-->
 	<link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
 	<link rel="stylesheet" href="{{ url('assets/css/skin_color.css') }}">
 
@@ -28,17 +25,13 @@
 		<a href="#" class="waves-effect waves-light nav-link d-none d-md-inline-block mx-10 push-btn bg-transparent" data-toggle="push-menu" role="button">
 			<span class="icon-Align-left"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span>
 		</a>
-		<!-- Logo -->
-		<a href="" class="logo">
-		  <!-- logo-->
+		<a href="#" class="logo">
 		  <div class="logo-lg">
 			  <span class="light-logo"><img src="{{ url('assets/image/logo.png')}}" alt="logo"></span>
 		  </div>
 		</a>
 	</div>
-    <!-- Header Navbar -->
     <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
 			<li class="btn-group nav-item d-lg-inline-flex d-none">
@@ -46,21 +39,18 @@
 					<i class="icon-Expand-arrows"><span class="path1"></span><span class="path2"></span></i>
 			    </a>
 			</li>
-	      <!-- User Account-->
           <li class="dropdown user user-menu">
             <a href="#" class="waves-effect waves-light dropdown-toggle" data-bs-toggle="dropdown" title="User">
 				<i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
             </a>
             <ul class="dropdown-menu animated flipInX">
               <li class="user-body">
-				 <a class="dropdown-item" href="#"><i class="ti-user text-muted me-2"></i> Profile</a>
-				 <a class="dropdown-item" href="#"><i class="ti-wallet text-muted me-2"></i> My Wallet</a>
-				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted me-2"></i> Settings</a>
+				 <a class="dropdown-item" href="{{ route('profile.show',Auth::user()->id) }}"><i class="ti-user text-muted me-2"></i> Профиль</a>
 				 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"
 					onclick="event.preventDefault();
 					document.getElementById('logout-form').submit();">
-					{{ __('Logout') }}
+					{{ __('Выход') }}
 				</a>
 				<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
 					@csrf
@@ -74,11 +64,9 @@
   </header>
 
   <aside class="main-sidebar">
-    <!-- sidebar-->
     <section class="sidebar position-relative">
 	  	<div class="multinav">
 		  <div class="multinav-scroll" style="height: 100%;">
-			  <!-- sidebar menu-->
 			    <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">Мои курсы</li>
                     <li class="treeview">
@@ -128,24 +116,22 @@
 		</div>
     </section>
 	<div class="sidebar-footer">
-		<!-- <a href="javascript:void(0)" class="link" data-bs-toggle="tooltip" title="Settings"><span class="icon-Settings-2"></span></a>
-		<a href="mailbox.html" class="link" data-bs-toggle="tooltip" title="Email"><span class="icon-Mail"></span></a> -->
-		<a href="javascript:void(0)" class="link" data-bs-toggle="tooltip" title="Logout"><span class="icon-Lock-overturning"><span class="path1"></span><span class="path2"></span></span></a>
+        <a class="link" href="{{ route('logout') }}" data-bs-toggle="tooltip" title="Logout" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();"><span class="icon-Lock-overturning"><span class="path1"></span><span class="path2"></span></span>
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
 	</div>
   </aside>
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper ">
 	  <div class="container-full">
-		<!-- Main content -->
 		<section class="content">
             @yield('content')
 		</section>
-		<!-- /.content -->
 	  </div>
   </div>
 
-	<!-- Vendor JS -->
 	<script src="{{ url('assets/js/vendors.min.js') }}"></script>
 	<script src="{{ url('assets/js/pages/chat-popup.js') }}"></script>
     <script src="{{ url('assets/icons/feather-icons/feather.min.js') }}"></script>
@@ -154,7 +140,6 @@
 	<script src="{{ url('assets/vendor_components/moment/min/moment.min.js') }}"></script>
 	<script src="{{ url('assets/vendor_components/fullcalendar/fullcalendar.js') }}"></script>
 
-	<!-- EduAdmin App -->
 	<script src="{{ url('assets/js/template.js') }}"></script>
 	<script src="{{ url('assets/js/pages/dashboard.js') }}"></script>
 	<script src="{{ url('assets/js/pages/calendar.js') }}"></script>

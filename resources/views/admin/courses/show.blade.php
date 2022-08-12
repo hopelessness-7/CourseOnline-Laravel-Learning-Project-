@@ -25,7 +25,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Описание:</strong>
-            {{ $course->description }}
+            {!! $course->description !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -40,19 +40,20 @@
     <a href="{{ route('record', $course->id) }}" class="btn btn-success my-10">Записаться</a>
 @endrole
 
-@role('Admin|Teacher')
+@role('admin|teacher')
 
-<a href="{{ route('show') }}" class="btn btn-success my-10">Добавить пользователя</a>
+<a href="{{ route('create') }}" class="btn btn-success my-10">Добавить пользователя</a>
 
-<table class="table table-bordered" id="dataTable1">
-    <tr>
-        <th>Id</th>
-        <th>Пользователь</th>
-        <th width="280px">Действия</th>
-    </tr>
+<table class="display" id="myTable">
+    <thead>
+        <tr>
+            <th>Пользователь</th>
+            <th width="280px">Действия</th>
+        </tr>
+    </thead>
+    <tbody>
     @foreach ($course->users as $user)
         <tr>
-            <td>{{ ++$i }}</td>
             <td>{{ $user->name }}</td>
             <td>
                 <div class="dropdown text-center">
@@ -61,13 +62,14 @@
                     </button>
                     <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
                         <li>
-                            <a href="{{ route('delete',$course->id) }}" class="btn btn-danger my-5">Отписать</a>
+                            <a href="{{ route('delete',$user->id) }}" class="btn btn-danger my-5">Отписать</a>
                         </li>
                     </ul>
                 </div>
             </td>
         </tr>
     @endforeach
+    </tbody>
 </table>
 
 @endrole

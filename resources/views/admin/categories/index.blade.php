@@ -23,18 +23,21 @@
     @endif
 
 
-    <table class="table table-bordered" id="dataTable1">
+    <table class="display" id="example">
+        <thead>
         <tr>
             <th>Id</th>
             <th>Наименование</th>
             <th>Описание</th>
             <th width="280px">Действия</th>
         </tr>
+        </thead>
+        <tbody>
         @foreach ($categories as $categorie)
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $categorie->title }}</td>
-            <td>{{ $categorie->description }}</td>
+            <td>{{ Str::limit($categorie->description, 100) }}</td>
             <td>
                 <div class="dropdown text-center">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,5 +66,6 @@
             </td>
         </tr>
         @endforeach
+    </tbody>
     </table>
 @endsection
